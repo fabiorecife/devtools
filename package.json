@@ -11,6 +11,8 @@
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
+    "@fabioalmeida/cnpj": "^1.0.0",
+    "@fabioalmeida/cpf": "^1.0.0",
     "vuex": "^3.0.1"
   },
   "devDependencies": {

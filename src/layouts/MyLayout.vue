@@ -18,7 +18,7 @@
 
         <q-toolbar-title>
           Dev tools
-          <div slot="subtitle">Executando devtools v{{ $q.version }}</div>
+          <div slot="subtitle">Executando devtools v{{ version }}</div>
         </q-toolbar-title>
       </q-toolbar>
     </q-layout-header>
@@ -32,8 +32,8 @@
         link
         inset-delimiter
       >
-        <q-list-header>Essential Links</q-list-header>
-        <q-item @click.native="openURL('http://quasar-framework.org')">
+        <q-list-header>Ferramentas</q-list-header>
+        <q-item @click.native="teste('http://quasar-framework.org')">
           <q-item-side icon="school" />
           <q-item-main label="Docs" sublabel="quasar-framework.org" />
         </q-item>
@@ -72,8 +72,17 @@ export default {
       leftDrawerOpen: this.$q.platform.is.desktop
     }
   },
+  computed: {
+    version () {
+      return this.$store.state.devtools.version
+    }
+  },
   methods: {
-    openURL
+    openURL,
+    teste () {
+      this.$store.commit('devtools/increment')
+      console.log('store ', this.$store.state.devtools.version)
+    }
   }
 }
 </script>

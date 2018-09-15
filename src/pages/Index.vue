@@ -1,6 +1,23 @@
 <template>
-  <q-page class="flex flex-center">
-    <img alt="Quasar logo" src="~assets/devtools.png">
+  <q-page class="q-pt-md q-pl-md">
+
+    <p><q-icon name="assignment_turned_in" size="48px"/>O Dev tools lhe presenteia com algumas
+      ferramentas que todo o desenvolvedor em algum momento vai precisar.</p>
+    <p>O Devtools roda como uma aplicação
+      <a href="https://developers.google.com/web/progressive-web-apps/">PWA</a></p>
+    <p><q-icon name="account_balance" size="48px"/>Para acessar as ferramentas, use o menu lateral,
+      caso esteja no celular o menu acima.</p>
+    <hr>
+    <p>
+      O sistema foi desenvolvido no <a href="https://quasar-framework.org/">Quasar-Framework</a>
+    </p>
+    <hr>
+    <p>Criei um
+      <a href="https://docs.google.com/document/d/1IHhmJKbdl4LmWwqSDbhSySiMbvxAJzXcCSP8gAKebpY/edit?usp=sharing">diário</a>
+      para esse produto.</p>
+    <hr>
+    <p>Caso pense em alguma melhoria ou identifique algum problema faça uma
+      <a href="https://github.com/fabiorecife/devtools/issues">sugestão no github</a>.</p>
   </q-page>
 </template>
 

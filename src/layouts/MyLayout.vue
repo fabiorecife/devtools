@@ -33,7 +33,10 @@
         inset-delimiter
       >
         <q-list-header>Ferramentas</q-list-header>
-
+          <q-item to="/home">
+            <q-item-side icon="home" />
+            <q-item-main label="Home" sublabel="página inicial" />
+          </q-item>
           <q-item to="/cpf">
               <q-item-side icon="account_box" />
               <q-item-main label="CPF" sublabel="validação, geração" />

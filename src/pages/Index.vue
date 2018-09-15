@@ -18,6 +18,8 @@
     <hr>
     <p>Caso pense em alguma melhoria ou identifique algum problema faça uma
       <a href="https://github.com/fabiorecife/devtools/issues">sugestão no github</a>.</p>
+    <hr>
+    <p>Para baixar o projeto acesse o <a href="https://github.com/fabiorecife/devtools">github</a>.</p>
   </q-page>
 </template>
 

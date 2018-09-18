@@ -1,6 +1,8 @@
 <template>
   <q-page padding>
-    <q-card class="q-mb-md">
+    <hr>
+    <q-card
+      class="q-mb-md">
       <q-card-title>
         Oções
       </q-card-title>
@@ -15,12 +17,11 @@
       class="q-mb-md"
       v-model="text"
       type="textarea"
-      float-label="Entre aqui seu Texto"
+      float-label="Texto sem html entity"
       :max-height="100"
       rows="5"
       clearable
       clear-value=""
-      inverted
     />
 
     <q-btn class="q-mr-md" @click="encode" label="Encode" ></q-btn>
@@ -30,12 +31,11 @@
       class="q-mt-md"
       v-model="htmlentity"
       type="textarea"
-      float-label="Html Entity"
+      float-label="Texto com html Entity"
       :max-height="100"
       rows="5"
       clearable
       clear-value=""
-      inverted-light
     />
   </q-page>
 </template>
@@ -51,7 +51,7 @@ export default {
         allowUnsafeSymbols: true,
         useNamedReferences: true
       },
-      text: 'fácio<i>teste</i>'
+      text: ''
     }
   },
   methods: {

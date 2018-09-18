@@ -13,6 +13,7 @@
   "dependencies": {
     "@fabioalmeida/cnpj": "^1.0.0",
     "@fabioalmeida/cpf": "^1.0.0",
+    "he": "^1.1.1",
     "vuex": "^3.0.1"
   },
   "devDependencies": {

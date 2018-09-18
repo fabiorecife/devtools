@@ -46,6 +46,10 @@
           <q-item-side icon="account_balance" />
           <q-item-main label="CNPJ" sublabel="validação, geração" />
         </q-item>
+        <q-item to="/htmlentityconvert">
+          <q-item-side icon="swap_horiz" />
+          <q-item-main label="Html Entity" sublabel="html entity convert" />
+        </q-item>
       </q-list>
     </q-layout-drawer><S></S>
 

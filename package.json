@@ -13,6 +13,8 @@
   "dependencies": {
     "@fabioalmeida/cnpj": "^1.0.0",
     "@fabioalmeida/cpf": "^1.0.0",
+    "@fabioalmeida/stringtobytearray": "^1.0.0",
+    "forge-dist": "github:fabiorecife/forge-dist",
     "he": "^1.1.1",
     "vuex": "^3.0.1"
   },

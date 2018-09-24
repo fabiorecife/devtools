@@ -50,6 +50,10 @@
           <q-item-side icon="swap_horiz" />
           <q-item-main label="Html Entity" sublabel="html entity convert" />
         </q-item>
+        <q-item to="/crypto101">
+          <q-item-side icon="swap_horiz" />
+          <q-item-main label="Crypto 101" sublabel="crypto functions" />
+        </q-item>
       </q-list>
     </q-layout-drawer><S></S>
 

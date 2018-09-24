@@ -8,6 +8,7 @@ const routes = [
       { path: '/home', component: () => import('pages/Index.vue') },
       { path: '/cpf', component: () => import('pages/Cpf.vue') },
       { path: '/htmlentityconvert', component: () => import('pages/HtmlEntityConvert.vue') },
+      { path: '/crypto101', component: () => import('pages/Crypto101.vue') },
       { path: '/cnpj', component: () => import('pages/Cnpj.vue') }
     ]
   }

@@ -1,72 +1,9 @@
 <template>
   <q-page padding>
     <p>PBKDF2</p>
-    <div class="row">
-      <div class="col-6">
-        <q-field class="justify-end"
-                 icon="credit_card"
-                 label="Password"
-        >
-          <q-input
-            type="text"
-            v-model="pbkdf2.password"
-          />
-        </q-field>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-6">
-        <q-field class="justify-end"
-                 icon="credit_card"
-                 label="Salt"
-        >
-          <q-input
-            type="text"
-            v-model="pbkdf2.salt"
-          />
-        </q-field>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-6">
-        <q-field class="justify-end"
-                 icon="credit_card"
-                 label="Iterations"
-        >
-          <q-input
-            type="text"
-            v-model="pbkdf2.iterations"
-          />
-        </q-field>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-6">
-        <q-field class="justify-end"
-                 icon="credit_card"
-                 label="Key Size"
-        >
-          <q-input
-            type="text"
-            v-model="pbkdf2.keysize"
-          />
-        </q-field>
-      </div>
-    </div>
-    <q-btn class="q-mr-md" @click="teste" label="Gerar PBKDF2" ></q-btn>
-
-    <p class="q-mt-md">Resultado:</p>
-    <ul>
-      <li>base64: {{saidaPbkdf2.base64}}</li>
-      <li>hex: {{saidaPbkdf2.hex}}</li>
-      <li>string: {{saidaPbkdf2.texto}}</li>
-    </ul>
-
-    <p class="q-mt-md">Para saber mais:</p>
-    <ul>
-      <li><a href="https://en.wikipedia.org/wiki/PBKDF2">wikipedia</a></li>
-      <li><a href="https://github.com/digitalbazaar/forge#pkcs5">FORGE JS</a></li>
-    </ul>
+    <router-link to="/crypto-pbkdf2">PBKDF2</router-link>
+    <p class="q-mt-lg">HASH</p>
+    <router-link to="/crypto-hash">HASH</router-link>
   </q-page>
 </template>
 

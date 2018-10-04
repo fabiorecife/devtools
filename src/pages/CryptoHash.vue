@@ -1,6 +1,6 @@
 <template>
   <q-page padding>
-    <p>SHA2-256</p>
+    <p>SHA2-256\MD5\SHA1</p>
     <div class="row">
       <div class="col-12">
         <q-field class="justify-end"

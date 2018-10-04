@@ -60,7 +60,8 @@ export default {
       base64: '',
       hex: '',
       texto: '',
-      content: '',
+      fileContent: '',
+      fileLoaded: false,
       algorithm: 'sha256'
     }
   },
@@ -74,10 +75,13 @@ export default {
       window.forge = forge
       console.log(forge)
       let md = forge.md[this.algorithm].create()
-      if (this.content === '') {
-        this.content = this.texto
+      let content
+      if (this.fileLoaded) {
+        content = this.fileContent
+      } else {
+        content = this.texto
       }
-      md.update(this.content)
+      md.update(content)
       let digest = md.digest()
       this.base64 = forge.util.encode64(digest.data)
       this.hex = digest.toHex()
@@ -87,7 +91,8 @@ export default {
       var fr = new FileReader()
       let vm = this
       fr.onload = function (e) {
-        vm.content = e.target.result
+        vm.fileContent = e.target.result
+        vm.fileLoaded = true
       }
       fr.readAsBinaryString(fileAbertura)
       console.log('processFile file ', fileAbertura)

@@ -23,6 +23,8 @@
       <div class="row q-pt-md">
         <q-btn class="q-mr-sm " label="Gerar" @click="gerarCnpj"/>
         <q-btn label="Limpar" @click="limparCnpj"/>
+        <a :class="{'q-ml-md': true, 'hidden':!showFileDownload, 'text-center': true}" :href="fileDownload"
+          download="cnpjs.txt"><q-btn icon="file_copy" label="Download" /></a>
       </div>
       <div class="row q-pt-md" v-if="cnpjs.length > 0">
         <q-list>
@@ -40,6 +42,8 @@ export default {
   data () {
     return {
       cnpjInput: '',
+      showFileDownload: false,
+      fileDownload: '', // 'data:text/plain;charset=utf-8,'
       cnpjs: []
     }
   },
@@ -64,9 +68,18 @@ export default {
   methods: {
     limparCnpj () {
       this.cnpjs = []
+      this.showFileDownload = false
     },
     gerarCnpj () {
+      let content, i
+
       this.cnpjs.push(cnpj.format(cnpj.generate()))
+      for (i = 0, content = ''; i < this.cnpjs.length; i++) {
+        content += this.cnpjs[i] + '\n'
+      }
+
+      this.showFileDownload = true
+      this.fileDownload = 'data:text/plain;charset=utf-8,' + content
     }
   }
 }

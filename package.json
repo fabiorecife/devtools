@@ -1,12 +1,13 @@
 {
   "name": "devtools",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Dev tools - tools to validate and generate cpf and cnpj",
   "productName": "Dev tools",
   "cordovaId": "net.fabioalmeida.devtools",
   "author": "fabioalmeida <fabiorecife@gmail.com>",
   "private": true,
   "scripts": {
+    "dev": "quasar dev",
     "lint": "eslint --ext .js,.vue src",
     "test": "echo \"No test specified\" && exit 0"
   },

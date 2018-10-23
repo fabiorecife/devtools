@@ -4,6 +4,8 @@
     <router-link to="/crypto-pbkdf2">PBKDF2</router-link>
     <p class="q-mt-lg">HASH</p>
     <router-link to="/crypto-hash">HASH</router-link>
+    <p class="q-mt-lg">Encrypt\Decrypt</p>
+    <router-link to="/crypto-file">Crypto Content</router-link>
   </q-page>
 </template>
 

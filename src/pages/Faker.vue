@@ -1,46 +1,64 @@
 <template>
   <q-page padding>
-    <p>PBKDF2</p>
+    <h3>FAKER NAME</h3>
+    <p>Existe momentos que você precisa de uma lista de nomes para inserir no banco, ou no html, exemplo</p>
+    <code>
+      insert into usuario (id, nome, outros) values (&lt;%= inscricao %&gt;, &lt;%= name %&gt; '{"cpf":"&lt;%= cpf.numero %&gt;"}');
+    </code>
+    <div class="row q-mt-lg">
+      <div class="col-12">
+          <q-input
+            v-model="textTemplate"
+            type="textarea"
+            float-label="Template"
+            :max-height="100"
+            rows="7"
+          />
+      </div>
+    </div>
     <div class="row">
       <div class="col-6">
         <q-field class="justify-end"
                  icon="credit_card"
-                 label="Template"
+                 label="Quantidade"
         >
           <q-input
             type="text"
-            v-model="textTemplate"
+            v-model="buildLength"
           />
         </q-field>
       </div>
     </div>
-
-    <q-btn class="q-mr-md" @click="teste" label="Gerar PBKDF2" ></q-btn>
-
-    <p class="q-mt-md">Resultado:</p>
-    <ul>
-      <li>base64: {{saidaPbkdf2.base64}}</li>
-      <li>hex: {{saidaPbkdf2.hex}}</li>
-      <li>string: {{saidaPbkdf2.texto}}</li>
-    </ul>
-
-    <p class="q-mt-md">Para saber mais:</p>
-    <ul>
-      <li><a href="https://en.wikipedia.org/wiki/PBKDF2">wikipedia</a></li>
-      <li><a href="https://github.com/digitalbazaar/forge#pkcs5">FORGE JS</a></li>
-    </ul>
+    <div class="q-mt-lg">
+      <q-btn class="q-mr-md" @click="gerar" label="Gerar Nomes" ></q-btn>
+      <q-btn class="q-mr-md" @click="limpar" label="Limpar" ></q-btn>
+      <q-toggle v-model="showItem" label="Exibir lista" />
+      <a :class="{'q-ml-md': true, 'hidden':!showFileDownload, 'text-center': true}"  :href="fileDownload"
+         download="fake.txt"><q-btn icon="file_copy" label="Download" /></a>
+      <div class="row q-pt-md" v-if="person.length > 0">
+        <q-list v-if="showItem">
+          <q-item v-for="_person in person" :key="_person">{{_person}}</q-item>
+        </q-list>
+      </div>
+    </div>
   </q-page>
 </template>
 
 <script>
-import forge from 'forge-dist'
+import {female, male, lastname} from '../names.json'
+import ejs from 'ejs'
+import cpf from '@fabioalmeida/cpf'
 
 export default {
-  name: 'CryptoPbkdf2',
+  name: 'Faker',
   data () {
     return {
       person: [],
-      textTemplate: ''
+      showFileDownload: false,
+      fileDownload: '', // 'data:text/plain;charset=utf-8,',
+      buildLength: 3,
+      textTemplate: '',
+      showItem: true
     }
   },
   computed: {
@@ -49,14 +67,44 @@ export default {
     }
   },
   methods: {
-    teste () {
-      window.forge = forge
-      console.log(forge)
-      console.log(this.senha)
-      let derivedKey = forge.pkcs5.pbkdf2(this.pbkdf2.password, this.pbkdf2.salt, this.pbkdf2.iterations, this.pbkdf2.keysize)
-      this.saidaPbkdf2.base64 = forge.util.encode64(derivedKey)
-      this.saidaPbkdf2.hex = forge.util.bytesToHex(derivedKey)
-      this.saidaPbkdf2.texto = derivedKey
+    limpar () {
+      this.person = []
+      this.showFileDownload = false
+      this.fileDownload = 'data:text/plain;charset=utf-8'
+    },
+    getRandomInt (max) {
+      return Math.floor(Math.random() * Math.floor(max))
+    },
+    gerar () {
+      let content = ''
+      for (let i = 0; i < this.buildLength; i++) {
+        let femaleIndex = this.getRandomInt(female.length)
+        let maleIndex = this.getRandomInt(male.length)
+        let lastnameIndex = this.getRandomInt(lastname.length)
+        let name = lastname[lastnameIndex]
+
+        if (Math.random() > 0.5) {
+          name = male[maleIndex].toUpperCase() + ' ' + name
+        } else {
+          name = female[femaleIndex].toUpperCase() + ' ' + name
+        }
+        let text, id, _cpf, cpfNum
+        id = i + 1
+        cpfNum = cpf.generate()
+        _cpf = {numero: cpfNum, formatado: cpf.format(cpfNum)}
+        if (this.textTemplate) {
+          text = ejs.render(this.textTemplate, {name, id, 'cpf': _cpf})
+        } else {
+          text = name
+        }
+        if (this.showItem) {
+          this.person.push(text)
+        }
+        content += text
+      }
+
+      this.showFileDownload = true
+      this.fileDownload = 'data:text/plain;charset=utf-8,' + content
     }
   }
 }

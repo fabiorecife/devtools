@@ -54,6 +54,10 @@
           <q-item-side icon="swap_horiz" />
           <q-item-main label="Crypto 101" sublabel="crypto functions" />
         </q-item>
+        <q-item to="/faker">
+          <q-item-side icon="swap_horiz" />
+          <q-item-main label="Faker Name" sublabel="faker" />
+        </q-item>
       </q-list>
     </q-layout-drawer><S></S>
 

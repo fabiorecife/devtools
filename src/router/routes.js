@@ -12,6 +12,8 @@ const routes = [
       { path: '/crypto-pbkdf2', component: () => import('pages/CryptoPbkdf2.vue') },
       { path: '/crypto-hash', component: () => import('pages/CryptoHash.vue') },
       { path: '/crypto-file', component: () => import('pages/CryptContent.vue') },
+      { path: '/crypto-pfx', component: () => import('pages/CryptoPfx.vue') },
+      { path: '/faker', component: () => import('pages/Faker.vue') },
       { path: '/cnpj', component: () => import('pages/Cnpj.vue') }
     ]
   }

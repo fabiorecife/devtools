@@ -22,6 +22,8 @@
     <div class="row q-pt-md">
       <q-btn class="q-mr-sm " label="Gerar" @click="gerarCpf"/>
       <q-btn label="Limpar" @click="limparCpf"/>
+      <a :class="{'q-ml-md': true, 'hidden':!showFileDownload, 'text-center': true}" :href="fileDownload"
+         download="cnpjs.txt"><q-btn icon="file_copy" label="Download" /></a>
     </div>
     <div class="row q-pt-md" v-if="cpfs.length > 0">
       <q-list>
@@ -39,6 +41,8 @@ export default {
   data () {
     return {
       cpfInput: '',
+      showFileDownload: false,
+      fileDownload: '', // 'data:text/plain;charset=utf-8,'
       cpfs: []
     }
   },
@@ -65,7 +69,14 @@ export default {
       this.cpfs = []
     },
     gerarCpf () {
+      let content, i
       this.cpfs.push(cpf.format(cpf.generate()))
+      for (i = 0, content = ''; i < this.cpfs.length; i++) {
+        content += this.cpfs[i] + '\n'
+      }
+
+      this.showFileDownload = true
+      this.fileDownload = 'data:text/plain;charset=utf-8,' + content
     }
   }
 }

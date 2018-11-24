@@ -13,7 +13,7 @@
     </p>
     <hr>
     <p>Criei um
-      <a href="https://docs.google.com/document/d/1IHhmJKbdl4LmWwqSDbhSySiMbvxAJzXcCSP8gAKebpY/edit?usp=sharing">diário</a>
+      <a href="http://bit.ly/2RVfpkC">diário</a>
       para esse produto.</p>
     <hr>
     <p>Caso pense em alguma melhoria ou identifique algum problema faça uma

@@ -1,8 +1,7 @@
 <template>
   <q-page class="q-pt-md q-pl-md">
 
-    <p><q-icon name="assignment_turned_in" size="48px"/>O Dev tools lhe presenteia com algumas
-      ferramentas que todo o desenvolvedor em algum momento vai precisar.</p>
+    <p><q-icon name="assignment_turned_in" size="48px"/>O Dev tools é um projeto experimenal de pwa, algoritmos e blibliotecas.</p>
     <p>O Devtools roda como uma aplicação
       <a href="https://developers.google.com/web/progressive-web-apps/">PWA</a></p>
     <p><q-icon name="account_balance" size="48px"/>Para acessar as ferramentas, use o menu lateral,

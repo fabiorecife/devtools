@@ -3,7 +3,7 @@
     <h3>FAKER NAME</h3>
     <p>Existe momentos que você precisa de uma lista de nomes para inserir no banco, ou no html, exemplo</p>
     <code>
-      insert into usuario (id, nome, outros) values (&lt;%= inscricao %&gt;, &lt;%= name %&gt; '{"cpf":"&lt;%= cpf.numero %&gt;"}');
+      insert into usuario (id, nome, outros) values (&lt;%= id %&gt;, &lt;%= name %&gt; '{"cpf":"&lt;%= cpf.numero %&gt;"}');
     </code>
     <div class="row q-mt-lg">
       <div class="col-12">

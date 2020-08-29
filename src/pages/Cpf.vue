@@ -19,6 +19,22 @@
       </div>
     </div>
     <p class="q-pt-md">Geração</p>
+    <div class="row">
+      <div class="col-6">
+        <q-field class="justify-end"
+          icon="credit_card"
+          label="Size"
+          :helper="'vezes'"
+          error-label="CPF inválido"
+          :error="cpfError"
+        >
+          <q-input
+            type="text"
+            v-model="size"
+          />
+        </q-field>
+      </div>
+    </div>
     <div class="row q-pt-md">
       <q-btn class="q-mr-sm " label="Gerar" @click="gerarCpf"/>
       <q-btn label="Limpar" @click="limparCpf"/>
@@ -40,6 +56,7 @@ export default {
   name: 'CpfPage',
   data () {
     return {
+      size: 1,
       cpfInput: '',
       showFileDownload: false,
       fileDownload: '', // 'data:text/plain;charset=utf-8,'
@@ -70,7 +87,9 @@ export default {
     },
     gerarCpf () {
       let content, i
-      this.cpfs.push(cpf.format(cpf.generate()))
+      for (i = 0; i < this.size; i++) {
+        this.cpfs.push(cpf.format(cpf.generate()))
+      }
       for (i = 0, content = ''; i < this.cpfs.length; i++) {
         content += this.cpfs[i] + '\n'
       }

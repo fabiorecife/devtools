@@ -20,7 +20,7 @@
     "forge-dist": "github:fabiorecife/forge-dist",
     "he": "^1.1.1",
     "vuex": "^3.0.1",
-    "xlsx": "^0.14.0"
+    "xlsx": "^0.17.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
